@@ -1,5 +1,5 @@
-const clientID = "6a2e2c31b497ad8617da4ae47aa9efeb";
-const redirectURI = "http://localhost:3000/";
+const clientID = "d1e611cf724a43308eaef4844b495d57";
+const redirectURI = "http://chris-jamming.surge.sh/";
 let accessToken;
 const Spotify = {
   getAccessToken() {
@@ -27,7 +27,7 @@ const Spotify = {
 
   search(term) {
     const accessToken = Spotify.getAccessToken();
-    const data = fetch(
+    return fetch(
       `https://api.spotify.com/v1/search?type=track&q=${term}
     `,
       {
@@ -51,7 +51,6 @@ const Spotify = {
           uri: track.uri,
         }));
       });
-    console.log(data);
   },
 
   savePlaylist(name, trackUris) {
